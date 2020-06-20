@@ -1,8 +1,8 @@
 # 云上的应⽤开发、部署和运维
----
 修改业务逻辑代码，增加自定义的prometheus Exporter
 ## 代码逻辑
-- 此处我定义了四个指标：Cpupercent，Diskpercent，Memorypercent，time 。分别是Cpu占用率，Disk占用率，内存占用率，系统时间（分钟）。
+- 此处我定义了四个指标：**Cpupercent**，**Diskpercent**，**Memorypercent**，**time** 。  
+分别是Cpu占用率，Disk占用率，内存占用率，系统时间（分钟）。
 ```go
 var (
 	//Cpu percent usage
@@ -32,7 +32,7 @@ var (
     ······
     )
 ```
-- import github.com/shirou/gopsutil
+- import **github.com/shirou/gopsutil**
 ```
 import (
 	"github.com/prometheus/client_golang/prometheus"
@@ -53,9 +53,9 @@ func Register() {
 	prometheus.MustRegister(Time)
 }
 ```
-- 赋值
-使用github.com/shirou/gopsutil 的资源获取本机的Cpu等信息，注意其赋值方式以及**所取参数的类型**。
-注意：代码中不可定义无用变量，否则会报错
+- 赋值  
+使用github.com/shirou/gopsutil 的资源获取本机的Cpu等信息，注意其赋值方式以及**所取参数的类型**。  
+注意：代码中不可定义无用变量，否则会报错  
 ```
 hour:=time.Now().Hour()
 minute:=time.Now().Minute()
